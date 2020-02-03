@@ -1,0 +1,63 @@
+#define N 5
+
+#define SIZE_ARR ( N * 2 - 1 )
+
+int main()
+
+{
+
+srand((unsigned)time(NULL));
+
+int a[N][N], i, j, range;
+
+int massDiag[SIZE_ARR];
+
+printf("Diapozon zapolnenija: ");
+
+scanf_s("%d", &range);
+
+printf("\n");
+
+//Zapolnenie matr
+
+for (i = 0; i < N; i++)
+
+{
+
+for (j = 0; j < N; j++)
+
+{
+
+a[i][j] = rand() % range + 1;
+
+printf("%2d ", a[i][j]);
+
+}
+
+printf("\n");
+
+}
+
+//*min di
+
+for (i = 0; i < SIZE_ARR; i++)
+
+massDiag[i] = INT_MAX;
+
+for (i = 0; i < N; i++)
+
+for (j = 0; j < N; j++)
+
+if (a[i][j] < massDiag[i + j])
+
+massDiag[i + j] = a[i][j];
+
+printf("\n");
+
+for (i = 0; i < SIZE_ARR; i++)
+
+printf("%d ", massDiag[i]);
+
+return 0;
+
+}}
